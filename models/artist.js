@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Album = require('./album')
 
 const artistSchema = new mongoose.Schema({
-    artist: {
+    name: {
         type: String, 
         required: true
     }

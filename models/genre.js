@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Album = require('./album');
 
 const genreSchema = new mongoose.Schema({
-    genre: {
+    name: {
         type: String, 
         required: true
     }

@@ -4,8 +4,7 @@ const Genre = require('../models/genre');
 const Artist = require('../models/artist');
 
 router.get('/', async (req, res) => {
-    res.send('albums link')
-    // res.render()
+    res.render('albums/index')
 })
 
 module.exports = router
