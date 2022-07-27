@@ -8,6 +8,7 @@ var expressLayouts = require('express-ejs-layouts');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var methodOverride = require('method-override');
 
 var indexRouter = require('./routes/index');
 var genresRouter = require('./routes/genres');
@@ -21,7 +22,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.set('layout', 'layouts/layout');
 
-app.use(expressLayouts)
+app.use(expressLayouts);
+app.use(methodOverride('_method'));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

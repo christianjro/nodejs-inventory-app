@@ -3,5 +3,10 @@
 <% genres.forEach(genre => { %> 
     <div>
         <h3><%= genre.name %></h3>
+        <a href="/genres/<%= genre.id %>">View</a>
+        <a href="/genres/<%= genre.id %>/edit">Edit</a>
+        <form method="POST" action="/genres/<%= genre.id %>?_method=DELETE">
+            <button type="submit">Delete</button>
+        </form>
     </div>
 <% }) %> 

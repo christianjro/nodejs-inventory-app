@@ -24,14 +24,67 @@ router.post('/', async (req, res) => {
         name: req.body.name
     });
     try {
-        const newGenre = await genre.save()
-        res.redirect('/genres')
+        const newGenre = await genre.save();
+        res.redirect('/genres');
     } catch {
-        res.render('authors/new', {
+        res.render('genres/new', {
             genre: genre, 
             errorMessage: 'Error creating Genre'
-        })
+        });
     }
+});
+
+// Genre Show Page
+router.get('/:id', async (req, res) => {
+    try {
+        const genre = await Genre.findById(req.params.id);
+        res.render('genres/show', {genre: genre});
+    } catch {
+        res.redirect('/');
+    }
+});
+
+// Edit Genre Route
+router.get('/:id/edit', async (req,res) => {
+    try {
+        const genre = await Genre.findById(req.params.id);
+        res.render('genres/edit', {genre: genre});
+    } catch {
+        res.redirect('/genres');
+    } 
+});
+
+// Edit Genre on DB
+router.put('/:id', async (req, res) => {
+    let genre;
+    try {
+        genre = await Genre.findById(req.params.id);
+        genre.name = req.body.name;
+        await genre.save();
+        res.redirect(`/genres/${genre.id}`);
+    } catch {
+        if (genre == null) {
+            res.redirect('/');
+        } else {
+            res.render('genres/edit', {genre: genre, errorMessage: 'Error updating Genre'});
+        };
+    };
+});
+
+// Delete Genre on DB
+router.delete('/:id', async(req, res) => {
+    let genre;
+    try {
+        genre = await Genre.findById(req.params.id);
+        await genre.remove();
+        res.redirect('/genres');
+    } catch {
+        if (genre == null) {
+            res.redirect('/');
+        } else {
+            res.redirect(`/genres/${genre.id}`);
+        };
+    };
 });
 
 module.exports = router;
