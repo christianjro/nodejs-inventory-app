@@ -1,1 +1,9 @@
 <h2>Albums Page</h2>
+
+<% albums.forEach(album => { %> 
+    <div>
+        <h3><%= album.title %></h3>
+        <p><%= album.description %></p>
+        <p><%= album.artist %></p>
+    </div>
+<% }) %> 

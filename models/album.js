@@ -7,12 +7,12 @@ const albumSchema = new mongoose.Schema({
     },
     artist: {
         type: mongoose.Schema.Types.ObjectId,
-        required: true,
+        required: false,
         ref: 'Artist'
     },
     genre: {
         type: mongoose.Schema.Types.ObjectId,
-        required: true,
+        required: false,
         ref: 'Genre'
     },
     description: {
@@ -29,7 +29,7 @@ const albumSchema = new mongoose.Schema({
     },
     coverImage: {
         type: Buffer, 
-        required: true
+        required: false
     }
 });
 
