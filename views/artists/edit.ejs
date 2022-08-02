@@ -1,0 +1,8 @@
+<h2>Edit Artist</h2>
+
+<form action="/artists/<%= artist.id %>?_method=PUT" method="POST">
+    <label>Name</label>
+    <input type="text" name="name" value="<%= artist.name %>">
+    <a href="/artists/<%= artist.id %>">Cancel</a>
+    <button type="submit">Update</button>
+</form>

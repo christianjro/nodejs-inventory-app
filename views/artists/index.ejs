@@ -3,5 +3,10 @@
 <% artists.forEach(artist => { %> 
     <div>
         <h3><%= artist.name %></h3>
+        <a href="/artists/<%= artist.id %>">View</a> 
+        <a href="/artists/<%= artist.id %>/edit">Edit</a>
+        <form action="/artists/<%= artist.id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete</button>
+        </form>
     </div>
 <% }) %> 

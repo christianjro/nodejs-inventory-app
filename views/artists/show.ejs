@@ -1,0 +1,13 @@
+<h2><%= artist.name %></h2>
+<a href="/artists/<%= artist.id %>/edit">Edit</a>
+<form action="/artists/<%= artist.id %>?_method=DELETE" method="POST">
+    <button type="submit">Delete</button>
+</form>
+
+
+<h2>Albums By Artist:</h2> 
+<% albumsByArtist.forEach(album => { %> 
+    <div>
+        <p><%= album.title %></p>
+    </div>
+<% }) %> 
