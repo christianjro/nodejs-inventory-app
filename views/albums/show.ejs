@@ -1,0 +1,21 @@
+<h2><%= album.title %></h2>
+<a href="/albums/<%= album.id %>/edit">Edit</a>
+<form method="POST" action="/albums/<%= album.id %>?_method=DELETE">
+    <button type="submit">Delete</button>
+</form>
+
+
+<h3>Album Artist: </h3>
+<p><%= album.artist.name %></p>
+
+<h3>Genre: </h3>
+<p><%= album.genre.name %></p>
+
+<h3>Description: </h3>
+<p><%= album.description %></p>
+
+<h3>Price: </h3>
+<p><%= album.price %></p>
+
+<h3>Number in Stock: </h3>
+<p><%= album.numberInStock %></p>

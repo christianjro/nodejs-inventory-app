@@ -1,9 +1,16 @@
-<h2>Albums Page</h2>
+<div class="container-fluid">
+    <h2>Albums Page</h2>
 
-<% albums.forEach(album => { %> 
-    <div>
-        <h3><%= album.title %></h3>
-        <p><%= album.description %></p>
-        <p><%= album.artist %></p>
-    </div>
-<% }) %> 
+    <% albums.forEach(album => { %> 
+        <div class="container-fluid d-flex mb-3">
+            <h3 class="text-nowrap"><%= album.title %></h3>
+            <div class="container-fluid d-flex">
+                <a href="/albums/<%= album.id %>" class="btn btn-warning me-2">View</a>
+                <a href="/albums/<%= album.id %>/edit" class="btn btn-secondary me-2">Edit</a>
+                <form method="POST" action="/albums/<%= album.id %>?_method=DELETE me-2">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    <% }) %> 
+</div>

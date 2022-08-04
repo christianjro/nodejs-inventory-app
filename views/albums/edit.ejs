@@ -1,8 +1,8 @@
 <div class="container-fluid">
-    <h2>New Album</h2>
+    <h2>Edit Album</h2>
 
     <div class="container-sm p-3 mb-2 bg-light rounded" >
-        <form action="/albums" method="POST" class="row g-3">
+        <form action="/albums/<%= album.id %>?_method=PUT" method="POST" class="row g-3">
             <div class="col-md-12"> 
                 <label class="form-label">Title</label>
                 <input type="text" name="title" value="<%= album.title %>" class="form-control">
@@ -59,7 +59,7 @@
             </div>
         
             <div class="d-grid col-6 mx-auto">
-                <button type="submit" class="btn btn-primary">Create</button>
+                <button type="submit" class="btn btn-primary">Update</button>
             </div>
         </form>
     </div>

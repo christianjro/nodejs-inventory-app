@@ -1,12 +1,16 @@
-<h2>Genres Page</h2>
+<div class="container-fluid">
+    <h2>Genres Page</h2>
 
-<% genres.forEach(genre => { %> 
-    <div>
-        <h3><%= genre.name %></h3>
-        <a href="/genres/<%= genre.id %>">View</a>
-        <a href="/genres/<%= genre.id %>/edit">Edit</a>
-        <form method="POST" action="/genres/<%= genre.id %>?_method=DELETE">
-            <button type="submit">Delete</button>
-        </form>
-    </div>
-<% }) %> 
+    <% genres.forEach(genre => { %> 
+        <div class="container-fluid d-flex mb-3">
+            <h3 class="text-nowrap"><%= genre.name %></h3>
+            <div class="container-fluid d-flex">
+                <a href="/genres/<%= genre.id %>" class="btn btn-warning me-2">View</a>
+                <a href="/genres/<%= genre.id %>/edit" class="btn btn-secondary me-2">Edit</a>
+                <form method="POST" action="/genres/<%= genre.id %>?_method=DELETE">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+        </div>
+    <% }) %> 
+</div>
