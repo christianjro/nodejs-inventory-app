@@ -1,1 +1,18 @@
-<h2>Index Page</h2>
+
+<div class="container p-5 text-left">
+    <div class="row justify-content-center">
+        <div class="col-sm-6 bg-primary">
+            <h1>Welcome to <br> Music Library</h1>
+            <p>Save and view all of you favorite music albums.</p>
+        </div>
+        <div class="col-sm-6 bg-secondary">
+            <img>
+        </div>
+    </div>
+</div>
+
+
+
+<% albums.forEach(album => { %> 
+    <img src="<%= album.coverImagePath %>">
+<% }) %> 

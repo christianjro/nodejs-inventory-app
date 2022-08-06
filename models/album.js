@@ -29,8 +29,19 @@ const albumSchema = new mongoose.Schema({
     },
     coverImage: {
         type: Buffer, 
-        required: false
+        required: true
+    },
+    coverImageType: {
+        type: String,
+        required: true
     }
+});
+
+// source of our image object
+albumSchema.virtual('coverImagePath').get(function() {
+    if (this.coverImage != null && this.coverImageType != null) {
+        return `data:${this.coverImageType};charset=utf-8;base64,${this.coverImage.toString('base64')}`
+    };
 });
 
 module.exports = mongoose.model('Album', albumSchema);

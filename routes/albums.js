@@ -4,6 +4,7 @@ const router = express.Router();
 const Album = require('../models/album');
 const Artist = require('../models/artist');
 const Genre = require('../models/genre');
+const imageMimeTypes = ['image/jpeg', 'image/png', 'images/gif'];
 
 // All Albums Route
 router.get('/', async (req, res) => {
@@ -36,9 +37,10 @@ router.post('/', async (req, res) => {
         price: req.body.price,
         numberInStock: req.body.numberInStock,
     });
+    saveCover(album, req.body.cover);
     try {
         const newAlbum = await album.save();
-        res.redirect(`/albums/${newAlbum.id}`)
+        res.redirect(`/albums/${newAlbum.id}`);
     } catch {
         // come back to this...
         res.render('albums/new', {
@@ -115,5 +117,16 @@ router.delete('/:id', async (req, res) => {
         };
     };
 });
+
+function saveCover(album, coverEncoded) {
+    if (coverEncoded == null) {
+        return
+    };
+    const cover = JSON.parse(coverEncoded);
+    if (cover != null && imageMimeTypes.includes(cover.type)) {
+        album.coverImage = new Buffer.from(cover.data, 'base64');
+        album.coverImageType = cover.type;
+    };
+};
 
 module.exports = router;

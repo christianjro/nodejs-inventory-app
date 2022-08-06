@@ -1,16 +1,14 @@
-<div class="container-fluid">
-    <h2>Artists Page</h2>
+<h2>Artists Page</h2>
 
-    <% artists.forEach(artist => { %> 
-        <div class="container-fluid d-flex mb-3">
-            <h3 class="text-nowrap"><%= artist.name %></h3>
-            <div class="container-fluid d-flex">
-                <a href="/artists/<%= artist.id %>" class="btn btn-warning me-2">View</a> 
-                <a href="/artists/<%= artist.id %>/edit" class="btn btn-secondary me-2">Edit</a>
-                <form action="/artists/<%= artist.id %>?_method=DELETE" method="POST">
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-            </div>
+<% artists.forEach(artist => { %> 
+    <div class="container-fluid d-flex mb-3">
+        <h3 class="text-nowrap"><%= artist.name %></h3>
+        <div class="container-fluid d-flex">
+            <a href="/artists/<%= artist.id %>" class="btn btn-warning me-2">View</a> 
+            <a href="/artists/<%= artist.id %>/edit" class="btn btn-secondary me-2">Edit</a>
+            <form action="/artists/<%= artist.id %>?_method=DELETE" method="POST">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
         </div>
-    <% }) %> 
-</div>
+    </div>
+<% }) %> 
