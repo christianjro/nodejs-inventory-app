@@ -1,9 +1,9 @@
-<h2>New Artist</h2>
+<h2 class="container my-4 display-5">New Artist</h2>
 
-<div class="container-sm p-3 mb-2 bg-light rounded">
+<div class="container-sm p-3 mb-2 border border-secondary border-opacity-25 rounded" style="max-width: 750px;">
     <form action="/artists" method="POST">
         <div class="input-group">
-            <input class="form-control" type="text" name="name" placeholder="Artist's Name">
+            <input class="form-control bg-dark border-secondary border-opacity-25 text-light" type="text" name="name" placeholder="Artist's Name">
             <a href="/artists" class="btn btn-secondary">Cancel</a>
             <button type="submit" class="btn btn-primary">Create</button>
         </div>

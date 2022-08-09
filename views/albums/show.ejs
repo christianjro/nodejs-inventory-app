@@ -1,21 +1,39 @@
-<h2><%= album.title %></h2>
-<a href="/albums/<%= album.id %>/edit">Edit</a>
-<form method="POST" action="/albums/<%= album.id %>?_method=DELETE">
-    <button type="submit">Delete</button>
-</form>
+<div class="container d-flex flex-md-row py-5 flex-column">
+    <div class="mb-4">
+        <img src="<%= album.coverImagePath %>" class="img-fluid rounded-4">
+    </div>
+    
+    <div class="container-lg d-flex flex-column ms-md-5 justify-content-between">
+        <h1 class="display-2"><%= album.title %></h1>
+        
+        <h4>Album Artist: </h4>
+        <p><%= album.artist.name %></p>
+    
+        <h4>Genre: </h4>
+        <p><%= album.genre.name %></p>
+    
+        <h4>Description: </h4>
+        <p><%= album.description %></p>
+    
+        <div class="d-flex justify-content-between">
+            <div class="d-flex align-items-center">
+                <h4 class="my-0">Price: </h4>
+                <p class="ms-3 my-0 fs-5"><%= album.price %></p>
+            </div>
 
+            <div class="d-flex align-items-center">
+                <h4 class="my-0">Number in Stock: </h4>
+                <p class="ms-3 my-0 fs-5"><%= album.numberInStock %></p>
+            </div>
+        </div>
 
-<h3>Album Artist: </h3>
-<p><%= album.artist.name %></p>
+        <div class="d-flex mt-3"> 
+            <a href="/albums/<%= album.id %>/edit" class="btn btn-secondary me-2">Edit</a>
+            <form method="POST" action="/albums/<%= album.id %>?_method=DELETE">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </div>
+        
+    </div>
+</div>
 
-<h3>Genre: </h3>
-<p><%= album.genre.name %></p>
-
-<h3>Description: </h3>
-<p><%= album.description %></p>
-
-<h3>Price: </h3>
-<p><%= album.price %></p>
-
-<h3>Number in Stock: </h3>
-<p><%= album.numberInStock %></p>

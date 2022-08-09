@@ -1,7 +1,11 @@
-<h2>Edit Genre</h2>
-<form action="/genres/<%= genre.id %>?_method=PUT" method="POST">
-    <label>Name:</label>
-    <input type="text" name="name" value="<%= genre.name %>">
-    <a href="/genres/<%= genre.id %>">Cancel</a>
-    <button type="submit">Update</button>
-</form>
+<h2 class="container my-4 display-5">Edit Genre</h2>
+
+<div class="container-sm p-3 mb-2 border border-secondary border-opacity-25 rounded" style="max-width: 750px;">
+    <form action="/genres/<%= genre.id %>?_method=PUT" method="POST">
+        <div class="input-group">
+            <input class="form-control bg-dark border-secondary border-opacity-25 text-light" type="text" name="name" placeholder="Genre Name" value="<%= genre.name %>">
+            <a href="/genres/<%= genre.id %>" class="btn btn-secondary">Cancel</a>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+    </form>
+</div>

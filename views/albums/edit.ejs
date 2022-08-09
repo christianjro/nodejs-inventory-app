@@ -1,15 +1,15 @@
-<h2>Edit Album</h2>
+<h2 class="container my-4 display-5">Edit Album</h2>
 
-<div class="container-sm p-3 mb-2 bg-light rounded" >
+<div class="container-sm p-3 mb-2 border border-secondary border-opacity-25 rounded" style="max-width: 750px;">
     <form action="/albums/<%= album.id %>?_method=PUT" method="POST" class="row g-3">
         <div class="col-md-12"> 
             <label class="form-label">Title</label>
-            <input type="text" name="title" value="<%= album.title %>" class="form-control">
+            <input type="text" name="title" value="<%= album.title %>" class="form-control bg-dark border-secondary border-opacity-25 text-light">
         </div>
         
         <div class="col-md-6"> 
             <label class="form-label">Artist</label>
-            <select name="artist" class="form-select">
+            <select name="artist" class="form-select bg-dark border-secondary border-opacity-25 text-light">
                 <% artists.forEach(artist => { %> 
                     <% if (artist.id == album.artist) { %> 
                         <option selected label="<%= artist.name %>" value="<%= artist.id %>">
@@ -22,7 +22,7 @@
     
         <div class="col-md-6">
             <label class="form-label">Genre</label>
-            <select name="genre" class="form-select">
+            <select name="genre" class="form-select bg-dark border-secondary border-opacity-25 text-light">
                 <% genres.forEach(genre => { %> 
                     <% if (genre.id == album.genre) { %> 
                         <option selected label="<%= genre.name %>" value="<%= genre.id %>">
@@ -35,22 +35,22 @@
     
         <div class="col-md-12">
             <label class="form-label">Description</label>
-            <textarea name="description" class="form-control"><%= album.description %></textarea>
+            <textarea name="description" class="form-control bg-dark border-secondary border-opacity-25 text-light"><%= album.description %></textarea>
         </div>
         
         <div class="col-md-6">
             <label class="form-label">Price</label>
-            <input type="number" name="price" min="1" value="<%= album.price %>" class="form-control">
+            <input type="number" name="price" min="1" value="<%= album.price %>" class="form-control bg-dark border-secondary border-opacity-25 text-light">
         </div>
     
         <div class="col-md-6">
             <label class="form-label">Number in Stock</label>
-            <input type="number" name="numberInStock" min="1" value="<%= album.numberInStock %>" class="form-control">
+            <input type="number" name="numberInStock" min="1" value="<%= album.numberInStock %>" class="form-control bg-dark border-secondary border-opacity-25 text-light">
         </div>
     
         <div class="col-md-12">
             <label class="form-label">Cover Image</label>
-            <input type="file" name="cover" class="filepond form-control">
+            <input type="file" name="cover" class="filepond form-control bg-dark border-secondary border-opacity-25 text-light">
         </div>
     
         <div class="d-grid col-6 mx-auto">

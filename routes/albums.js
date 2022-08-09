@@ -9,7 +9,7 @@ const imageMimeTypes = ['image/jpeg', 'image/png', 'images/gif'];
 // All Albums Route
 router.get('/', async (req, res) => {
     try {
-        const albums = await Album.find({});
+        const albums = await Album.find({}).populate('artist').exec();
         res.render('albums/index', {albums: albums});
     } catch {
         res.redirect('/');

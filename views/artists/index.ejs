@@ -1,9 +1,11 @@
-<h2>Artists Page</h2>
+<h1 class="container my-4 display-5">Artists Page</h1>
+<p class="container-sm mb-4">This is a directory of all the artists saved to the application. Here you can view your 
+    saved artists, edit the artists' name, or delete an artist.</p>
 
 <% artists.forEach(artist => { %> 
-    <div class="container-fluid d-flex mb-3">
-        <h3 class="text-nowrap"><%= artist.name %></h3>
-        <div class="container-fluid d-flex">
+    <div class="container d-flex mb-3 align-items-center justify-content-between">
+        <h4 class="text-nowrap m-0"><%= artist.name %></h4>
+        <div class="d-flex py-1">
             <a href="/artists/<%= artist.id %>" class="btn btn-warning me-2">View</a> 
             <a href="/artists/<%= artist.id %>/edit" class="btn btn-secondary me-2">Edit</a>
             <form action="/artists/<%= artist.id %>?_method=DELETE" method="POST">

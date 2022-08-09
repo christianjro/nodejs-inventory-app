@@ -1,14 +1,25 @@
-<h2>Albums Page</h2>
+<h1 class="container my-4 display-5">Albums Page</h1>
+<p class="container-sm mb-4">This is a directory of all the albums saved to the application. Here you can view your 
+    saved albums, edit the albums' name, or delete an album.</p>
 
-<% albums.forEach(album => { %> 
-    <div class="container-fluid d-flex mb-3">
-        <h3 class="text-nowrap"><%= album.title %></h3>
-        <div class="container-fluid d-flex">
-            <a href="/albums/<%= album.id %>" class="btn btn-warning me-2">View</a>
-            <a href="/albums/<%= album.id %>/edit" class="btn btn-secondary me-2">Edit</a>
-            <form method="POST" action="/albums/<%= album.id %>?_method=DELETE me-2">
-                <button type="submit" class="btn btn-danger">Delete</button>
-            </form>
-        </div>
+<div class="container my-5 py-2">
+    <div class="d-flex flex-wrap">
+        <% albums.forEach(album => { %> 
+            <div class="card me-4 bg-secondary bg-opacity-10 mb-3" style="width: 18rem;">
+                <a href="/albums/<%= album.id %> " class="text-decoration-none text-light">
+                    <img src="<%= album.coverImagePath %>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text mb-2"><%= album.title %> <br> by <%= album.artist.name %></p>
+                        <div class="container-fluid d-flex ms-0 ps-0 py-1">
+                            <a href="/albums/<%= album.id %>" class="btn btn-warning me-2">View</a>
+                            <a href="/albums/<%= album.id %>/edit" class="btn btn-secondary me-2">Edit</a>
+                            <form method="POST" action="/albums/<%= album.id %>?_method=DELETE">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        <% }) %> 
     </div>
-<% }) %> 
+</div>

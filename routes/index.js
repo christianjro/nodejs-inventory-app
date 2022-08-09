@@ -6,7 +6,7 @@ var Album = require('../models/album');
 router.get('/', async function(req, res, next) {
   let albums;
   try {
-    albums = await Album.find().limit(10).exec()
+    albums = await Album.find().limit(10).populate('artist').exec()
   } catch {
     albums = []
   };
