@@ -5,9 +5,14 @@ const Album = require('../models/album');
 
 // All Artists
 router.get('/', async (req, res) => {
+    let query = Artist.find();
+    if (req.query.name != null && req.query.name != '') {
+        query = query.regex('name', new RegExp(req.query.name, 'i'));
+    };
+
     try {
-        const artists = await Artist.find({});
-        res.render('artists/index', {artists, artists});
+        const artists = await query.exec();
+        res.render('artists/index', {artists: artists, searchOptions: req.query});
     } catch {
         res.redirect('/');
     };

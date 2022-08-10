@@ -2,12 +2,19 @@
 <p class="container-sm mb-4">This is a directory of all the genres saved to the application. Here you can view your 
     saved genres, edit the genre name, or delete a genre.</p>
 
+<div class="container my-5 px-0" role="search">
+    <form action="/genres" method="GET" class="container-fluid d-flex">
+        <input type="text" name="name" value="<%= searchOptions.name %>" class="form-control me-2 bg-dark text-light border-light border-opacity-25" type="search" placeholder="Search" aria-label="Search">
+        <button type="submit" class="btn btn-outline-success">Search</button>
+    </form>
+</div>
+
 <% genres.forEach(genre => { %> 
-    <div class="container d-flex mb-3 align-items-center justify-content-between">
+    <div class="container d-flex flex-column flex-sm-row mb-3 py-2 align-items-sm-center justify-content-between border-bottom border-secondary border-opacity-25">
         <h4 class="text-nowrap m-0"><%= genre.name %></h4>
-        <div class="d-flex py-1">
-            <a href="/genres/<%= genre.id %>" class="btn btn-warning me-2">View</a>
-            <a href="/genres/<%= genre.id %>/edit" class="btn btn-secondary me-2">Edit</a>
+        <div class="d-flex py-3">
+            <!-- <a href="/genres/<%= genre.id %>" class="btn btn-warning me-3">View</a> -->
+            <a href="/genres/<%= genre.id %>/edit" class="btn btn-secondary me-3">Edit</a>
             <form method="POST" action="/genres/<%= genre.id %>?_method=DELETE">
                 <button type="submit" class="btn btn-danger">Delete</button>
             </form>

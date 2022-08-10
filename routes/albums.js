@@ -8,9 +8,14 @@ const imageMimeTypes = ['image/jpeg', 'image/png', 'images/gif'];
 
 // All Albums Route
 router.get('/', async (req, res) => {
+    let query = Album.find();
+    if (req.query.title != null && req.query.title != '') {
+        query = query.regex('title', new RegExp(req.query.title, 'i'));
+    };
+
     try {
-        const albums = await Album.find({}).populate('artist').exec();
-        res.render('albums/index', {albums: albums});
+        const albums = await query.populate('artist').exec();
+        res.render('albums/index', {albums: albums, searchOptions: req.query});
     } catch {
         res.redirect('/');
     };

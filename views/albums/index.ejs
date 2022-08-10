@@ -2,10 +2,17 @@
 <p class="container-sm mb-4">This is a directory of all the albums saved to the application. Here you can view your 
     saved albums, edit the albums' name, or delete an album.</p>
 
+<div class="container my-5 px-0" role="search">
+    <form action="/albums" method="GET" class="container-fluid d-flex">
+        <input type="text" name="title" value="<%= searchOptions.title %>" class="form-control me-2 bg-dark text-light border-light border-opacity-25" type="search" placeholder="Search" aria-label="Search">
+        <button type="submit" class="btn btn-outline-success">Search</button>
+    </form>
+</div>
+
 <div class="container my-5 py-2">
     <div class="d-flex flex-wrap">
         <% albums.forEach(album => { %> 
-            <div class="card me-4 bg-secondary bg-opacity-10 mb-3" style="width: 18rem;">
+            <div class="card bg-secondary bg-opacity-10 mb-4 me-4" style="width: 18rem;">
                 <a href="/albums/<%= album.id %> " class="text-decoration-none text-light">
                     <img src="<%= album.coverImagePath %>" class="card-img-top" alt="...">
                     <div class="card-body">

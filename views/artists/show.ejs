@@ -1,13 +1,28 @@
-<h2><%= artist.name %></h2>
-<a href="/artists/<%= artist.id %>/edit">Edit</a>
-<form action="/artists/<%= artist.id %>?_method=DELETE" method="POST">
-    <button type="submit">Delete</button>
-</form>
+<h1 class="container my-4 display-5"><%= artist.name %></h1>
 
+<div class="container d-flex py-2">
+    <a href="/artists/<%= artist.id %>/edit" class="btn btn-secondary me-3">Edit</a>
+    <form action="/artists/<%= artist.id %>?_method=DELETE" method="POST">
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+</div>
 
-<h2>Albums By Artist:</h2> 
-<% albumsByArtist.forEach(album => { %> 
-    <div>
-        <p><%= album.title %></p>
+<div class="container">
+    <h3>___________________________</h3>
+</div>
+
+<div class="container my-5">
+    <h3 class="my-4">Albums By Artist</h3>
+    <div class="d-flex flex-wrap">
+        <% albumsByArtist.forEach(album => { %> 
+            <div class="card me-4 bg-secondary bg-opacity-10 mb-3" style="width: 18rem;">
+                <a href="/albums/<%= album.id %> " class="text-decoration-none text-light">
+                    <img src="<%= album.coverImagePath %>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <p class="card-text"><%= album.title %> <br> by <%= artist.name %></p>
+                    </div>
+                </a>
+            </div>
+        <% }) %> 
     </div>
-<% }) %> 
+</div>

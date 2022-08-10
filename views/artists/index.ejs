@@ -1,13 +1,24 @@
 <h1 class="container my-4 display-5">Artists Page</h1>
-<p class="container-sm mb-4">This is a directory of all the artists saved to the application. Here you can view your 
-    saved artists, edit the artists' name, or delete an artist.</p>
+<p class="container-sm mb-4">
+    This is a directory of all the artists saved to the application. Here you can view your 
+    saved artists, edit the artists' name, or delete an artist. Remember that in order to delete 
+    an Artist, all of their albums must already be deleted.
+</p>
+
+<div class="container my-5 px-0" role="search">
+    <form action="/artists" method="GET" class="container-fluid d-flex"> 
+        <input type="text" name="name" value="<%= searchOptions.name %>" class="form-control me-2 bg-dark text-light border-light border-opacity-25" type="search" placeholder="Search" aria-label="Search">
+        <button type="submit" class="btn btn-outline-success">Search</button>
+    </form>
+</div>
+
 
 <% artists.forEach(artist => { %> 
-    <div class="container d-flex mb-3 align-items-center justify-content-between">
+    <div class="container d-flex flex-column flex-sm-row mb-3 py-2 align-items-sm-center justify-content-between border-bottom border-secondary border-opacity-25">
         <h4 class="text-nowrap m-0"><%= artist.name %></h4>
-        <div class="d-flex py-1">
-            <a href="/artists/<%= artist.id %>" class="btn btn-warning me-2">View</a> 
-            <a href="/artists/<%= artist.id %>/edit" class="btn btn-secondary me-2">Edit</a>
+        <div class="d-flex py-3">
+            <a href="/artists/<%= artist.id %>" class="btn btn-warning me-3">View</a> 
+            <a href="/artists/<%= artist.id %>/edit" class="btn btn-secondary me-3">Edit</a>
             <form action="/artists/<%= artist.id %>?_method=DELETE" method="POST">
                 <button type="submit" class="btn btn-danger">Delete</button>
             </form>

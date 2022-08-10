@@ -2,8 +2,9 @@
 
 <div class="container-sm p-3 mb-2 border border-secondary border-opacity-25 rounded" style="max-width: 750px;">
     <form action="/artists/<%= artist.id %>?_method=PUT" method="POST">
+        <label class="form-label text-secondary">Artist Name</label>
         <div class="input-group">
-            <input class="form-control bg-dark border-secondary border-opacity-25 text-light" type="text" name="name" placeholder="Artist's Name">
+            <input class="form-control bg-dark border-secondary border-opacity-25 text-light" type="text" name="name">
             <a href="/artists/<%= artist.id %>" class="btn btn-secondary">Cancel</a>
             <button type="submit" class="btn btn-primary">Update</button>        </div>
     </form>

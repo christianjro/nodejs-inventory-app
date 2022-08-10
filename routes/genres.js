@@ -5,9 +5,14 @@ const Album = require('../models/album');
 
 // All Genres
 router.get('/', async (req, res) => {
+    let query = Genre.find();
+    if (req.query.name != null && req.query.name != ''){
+        query = query.regex('name', new RegExp(req.query.name, 'i'));
+    };
+
     try {
-        const genres = await Genre.find({});
-        res.render('genres/index', {genres: genres});
+        const genres = await query.exec();
+        res.render('genres/index', {genres: genres, searchOptions: req.query});
     } catch {
         res.redirect('/');
     }
