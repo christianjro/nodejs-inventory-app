@@ -12,9 +12,9 @@
             <select name="artist" class="form-select bg-dark border-secondary border-opacity-25 text-light">
                 <% artists.forEach(artist => { %> 
                     <% if (artist.id == album.artist) { %> 
-                        <option selected label="<%= artist.name %>" value="<%= artist.id %>">
+                        <option selected label="<%= artist.name %>" value="<%= artist.id %>"><%= artist.name %></option>
                     <% } else { %> 
-                        <option label="<%= artist.name %>" value="<%= artist.id %>">
+                        <option label="<%= artist.name %>" value="<%= artist.id %>"><%= artist.name %></option>
                     <% } %> 
                 <% }) %> 
             </select>
@@ -25,9 +25,9 @@
             <select name="genre" class="form-select bg-dark border-secondary border-opacity-25 text-light">
                 <% genres.forEach(genre => { %> 
                     <% if (genre.id == album.genre) { %> 
-                        <option selected label="<%= genre.name %>" value="<%= genre.id %>">
+                        <option selected label="<%= genre.name %>" value="<%= genre.id %>"><%= genre.name %></option>
                     <% } else { %> 
-                        <option label="<%= genre.name %>" value="<%= genre.id %>">
+                        <option label="<%= genre.name %>" value="<%= genre.id %>"><%= genre.name %></option>
                     <% } %> 
                 <% }) %> 
             </select>
