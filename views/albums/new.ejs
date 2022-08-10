@@ -23,7 +23,7 @@
     
         <div class="col-md-6">
             <label class="form-label text-secondary">Genre</label>
-            <select id="select-custom" name="genre" class="form-select border-secondary border-opacity-25 bg-dark text-light custom" required>
+            <select name="genre" class="form-select border-secondary border-opacity-25 bg-dark text-light" required>
                 <option value="" disabled selected> </option>
                 <% genres.forEach(genre => { %> 
                     <% if (genre.id == album.genre) { %> 
