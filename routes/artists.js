@@ -91,7 +91,7 @@ router.delete('/:id', async (req, res) => {
         if (artist == null) {
             res.redirect('/');
         } else {
-            res.redirect(`/artists/${artist.id}`)
+            res.redirect('/artists')
         };
     };
 });

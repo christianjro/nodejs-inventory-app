@@ -87,7 +87,7 @@ router.delete('/:id', async(req, res) => {
         if (genre == null) {
             res.redirect('/');
         } else {
-            res.redirect(`/genres/${genre.id}`);
+            res.redirect('/genres');
         };
     };
 });

@@ -10,14 +10,15 @@ const artistSchema = new mongoose.Schema({
 
 artistSchema.pre('remove', function(next) {
     Album.find({artist: this.id}, (err, albums) => {
-        if(err) {
-            next(err)
+        if (err) {
+            next(err);
         } else if (albums.length > 0) {
-            next(new Error('This artist still has album items.'))
+            console.error('This artist still has album items.');
+            next(new Error('This artist still has album items.'));
         } else {
-            next()
-        }
-    })
+            next();
+        };
+    });
 });
 
 module.exports = mongoose.model('Artist', artistSchema);

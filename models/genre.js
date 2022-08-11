@@ -11,13 +11,14 @@ const genreSchema = new mongoose.Schema({
 genreSchema.pre('remove', function(next) {
     Album.find( {genre: this.id}, (err, albums) => {
         if (err) {
-            next(err)
+            next(err);
         } else if (albums.length > 0) {
-            next(new Error('This genre still has album items.'))
+            console.error('This genre still has album items.');
+            next(new Error('This genre still has album items.'));
         } else {
-            next()
-        }
-    })
+            next();
+        };
+    });
 });
 
 module.exports = mongoose.model('Genre', genreSchema);
